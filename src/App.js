@@ -13,7 +13,6 @@ import Intro from './components/Intro'
 import Skills from "./components/Skills";
 import About from "./components/About";
 import Work from "./components/Work";
-import Projects from './components/Projects'
 import Contact from "./components/Contact";
 import Footer from './components/Footer';
 // import Particles from 'react-tsparticles';
@@ -29,6 +28,7 @@ function App() {
           <Route path="/" element={<Intro/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/work" element={<Work/>}/>
+          <Route path="/skills" element={<Skills/>}/>
         </Routes>
         <Footer />
       </div>
