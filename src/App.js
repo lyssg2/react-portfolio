@@ -4,7 +4,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link
 } from "react-router-dom";
 
 // Components
@@ -29,6 +28,7 @@ function App() {
           <Route path="/about" element={<About/>}/>
           <Route path="/work" element={<Work/>}/>
           <Route path="/skills" element={<Skills/>}/>
+          <Route path="/contact" element={<Contact/>}/>
         </Routes>
         <Footer />
       </div>
