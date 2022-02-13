@@ -6,9 +6,9 @@ This project is my deployed portfolio website to showcase my skills, projects do
 
 Required program(s) needed is any common internet browser with Javascript enabled in said browser (most browsers already have them installed and enabled).
 
-### Where to find quiz
+### Where to find portflio
 
-The quiz can be found at URL below
+The portfolio can be found at URL below
 https://lyssg2.github.io/react-portfolio/
 
 ## Screenshot
