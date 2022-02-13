@@ -5,7 +5,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 
 const styles = {
     navStyle: {
-        backgroundColor: '#ff8f00',
+        backgroundColor: 'black',
     }
 }
 
@@ -22,10 +22,10 @@ render() {
         <header>
             <nav style={styles.navStyle}>
                 <div className="nav-wrapper">
-                <a href="#!" class="brand-logo">Lyss Garcia</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
-                        <li><Link to="/About">About</Link></li>
+                <a href="/" class="brand-logo center">Hi, I'm Lyss</a>
+                <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+                <ul className="right hide-on-med-and-down">
+                        <li><a href="/about">About</a></li>
                         <li><Link to="/Skills">Skills</Link></li>
                         <li><Link to="/Work">Work</Link></li>
                         <li><Link to="/Contact">Contact</Link></li>

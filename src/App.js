@@ -1,22 +1,39 @@
 import './App.css';
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import React from 'react';
-import Header from './components/Header'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
+// Components
 import Navigation from './components/Navigation'
-import Footer from "./components/Footer";
+import Intro from './components/Intro'
 import Skills from "./components/Skills";
 import About from "./components/About";
 import Work from "./components/Work";
+import Projects from './components/Projects'
 import Contact from "./components/Contact";
+import Footer from './components/Footer';
+// import Particles from 'react-tsparticles';
 
 function App() {
+
   return (
-    <Router>
-    <div className="App">
-      <Navigation />
-    </div>
-    </Router>
-  );
+    <BrowserRouter>
+      <div className="app-container">
+        <Navigation />
+        {/* <Particles /> */}
+        <Routes>
+          <Route path="/" element={<Intro/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/work" element={<Work/>}/>
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
