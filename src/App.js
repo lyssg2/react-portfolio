@@ -1,10 +1,10 @@
 import './App.css';
 import React from 'react';
 import {
-  BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 
 // Components
 import Navigation from './components/Navigation'
@@ -19,12 +19,12 @@ import Footer from './components/Footer';
 function App() {
 
   return (
-    <BrowserRouter>
+    <Router>
       <div className="app-container">
         <Navigation />
+        <Intro />
         {/* <Particles /> */}
         <Routes>
-          <Route path="/" element={<Intro/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/work" element={<Work/>}/>
           <Route path="/skills" element={<Skills/>}/>
@@ -32,7 +32,7 @@ function App() {
         </Routes>
         <Footer />
       </div>
-    </BrowserRouter>
+    </Router>
   )
 }
 

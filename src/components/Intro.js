@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom"
-import M from 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 
 
