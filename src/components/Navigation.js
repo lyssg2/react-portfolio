@@ -22,9 +22,10 @@ class Navigation extends Component {
             <header>
                 <nav style={styles.navStyle}>
                     <div className="nav-wrapper">
-                        <a href="/" className="brand-logo center">Hi, I'm Lyss</a>
+                        <h6 className="brand-logo center">Hi, I'm Lyss</h6>
                         <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                         <ul className="right hide-on-med-and-down">
+                            <li><Link to="/">Home</Link></li>
                             <li><Link to="/About">About</Link></li>
                             <li><Link to="/Skills">Skills</Link></li>
                             <li><Link to="/Work">Work</Link></li>
@@ -34,6 +35,7 @@ class Navigation extends Component {
                 </nav>
 
                 <ul className="sidenav" id="mobile-demo">
+                    <li><Link to="/">Home</Link></li>
                     <li><Link to="/About">About</Link></li>
                     <li><Link to="/Skills">Skills</Link></li>
                     <li><Link to="/Work">Work</Link></li>

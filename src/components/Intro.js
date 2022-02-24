@@ -7,12 +7,12 @@ const styles = {
         margin: '40px 0 200px 0',
     },
     msgStyle: {
-        margin: '100px 0 200px 0', 
+        margin: '100px 0 200px 0',
     }
 }
 
 export default function Intro() {
-  return (
+    return (
         <div className="section" id="introduction">
             <div className="row container">
                 <div className="col s6">
@@ -24,7 +24,7 @@ export default function Intro() {
                 </div>
             </div>
         </div>
-        
-  );
+
+    );
 }
 

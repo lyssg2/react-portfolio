@@ -15,8 +15,8 @@ function Work() {
     return (
         <div className="container">
             <div className="row center-align">
-            <h3>Check out some of my code</h3>
-            <div className="col s6">
+                <h3>Check out some of my code</h3>
+                <div className="col s6">
                     <div className="card large z-depth-4">
                         <div className="card-content">
                             <span className="card-title">extracted.</span>
