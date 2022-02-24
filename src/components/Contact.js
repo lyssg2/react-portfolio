@@ -14,35 +14,35 @@ class Contact extends Component {
   return (
     <div className="container">
     <form>
-      <div class="input-field col s6">
-          <input id="name" type="text" class="validate"></input>
+      <div className="input-field col s6">
+          <input id="name" type="text" className="validate"></input>
           <label for="name">Name</label>
         </div>
       <div className="mb-3 pt-0">
-      <div class="input-field col s6">
-          <input id="email" type="text" class="validate"></input>
+      <div className="input-field col s6">
+          <input id="email" type="text" className="validate"></input>
           <label for="email">Email</label>
         </div>
       </div>
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
+      <div className="row">
+        <form className="col s12">
+          <div className="row">
+            <div className="input-field col s12">
+              <textarea id="textarea1" className="materialize-textarea"></textarea>
               <label for="textarea1">Message Here...</label>
             </div>
           </div>
         </form>
       </div>
       <div className="mb-3 pt-0">
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Submit</a>
-          <div id="modal1" class="modal">
-            <div class="modal-content">
+        <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Submit</a>
+          <div id="modal1" className="modal">
+            <div className="modal-content">
               <h4>Thanks!</h4>
               <p>We'll be in contact soon.</p>
             </div>
-            <div class="modal-footer">
-              <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <div className="modal-footer">
+              <a href="#!" className="modal-close waves-effect waves-green btn-flat">Agree</a>
             </div>
           </div>
         </div>

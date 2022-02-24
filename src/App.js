@@ -1,10 +1,15 @@
+// Dependencies
 import './App.css';
 import React from 'react';
 import {
   Routes,
   Route,
+  HashRouter as Router,
 } from "react-router-dom";
-import { HashRouter as Router } from "react-router-dom";
+
+// Styling 
+import 'materialize-css/dist/css/materialize.min.css'
+import './index.css';
 
 // Components
 import Navigation from './components/Navigation'
@@ -19,17 +24,18 @@ import Footer from './components/Footer';
 function App() {
 
   return (
-    <Router>
+    <Router basename="/">
       <div className="app-container">
         <Navigation />
-        <Intro />
         {/* <Particles /> */}
         <Routes>
-          <Route path="/about" element={<About/>}/>
+            <Route path="/" element={<Intro/>} />
+          <Route path="/About" element={<About/>}/>
           <Route path="/work" element={<Work/>}/>
           <Route path="/skills" element={<Skills/>}/>
           <Route path="/contact" element={<Contact/>}/>
         </Routes>
+        
         <Footer />
       </div>
     </Router>

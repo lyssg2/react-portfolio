@@ -18,7 +18,7 @@ export default function Intro() {
                 <div className="col s6">
                     <img style={styles.helloImg} src={require("../assets/images/selfie.JPEG")} className="responsive-img" id="hello-img" alt="Lyss Garcia, Web Developer"></img>
                 </div>
-                <div style={styles.msgStyle} class="col s6">
+                <div style={styles.msgStyle} className="col s6">
                     <h5>Welcome. Click the links above to get to know me and my work. Let's create something cool together.
                     </h5>
                 </div>

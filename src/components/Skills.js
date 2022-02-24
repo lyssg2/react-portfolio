@@ -3,12 +3,12 @@ import 'materialize-css/dist/css/materialize.min.css';
 
 function Skills() {
     return (
-        <div class="container">
+        <div className="container">
         
-        <div class="col s12 m6">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Lyss got Skills</span>
+        <div className="col s12 m6">
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+              <span className="card-title">Lyss got Skills</span>
               <p>Some technologies and languages I work with...</p>
               <ul>
                   <li>React</li>
@@ -27,7 +27,7 @@ function Skills() {
                   <li>TypeScript</li>
               </ul>
             </div>
-            <div class="card-action">
+            <div className="card-action">
               <a href="https://docs.google.com/document/d/1AXuYjm56JkD8URFyYIUMWmWzpLDPWgLbF12m_GLejx4/edit?usp=sharing">Resume</a>
               <a href="https://www.linkedin.com/in/lyss-garcia-6a480a155/">LinkedIn</a>
             </div>
