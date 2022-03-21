@@ -1,8 +1,16 @@
 import React from 'react'
 import 'materialize-css/dist/css/materialize.min.css';
+import { motion } from 'framer-motion';
 
 function Skills() {
   return (
+    <>
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 2 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+    >
     <div className="container">
 
       <div className="col s12 m6">
@@ -34,6 +42,8 @@ function Skills() {
         </div>
       </div>
     </div>
+    </motion.div >
+        </>
   );
 }
 

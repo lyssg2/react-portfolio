@@ -1,8 +1,16 @@
 import React from 'react'
 import 'materialize-css/dist/css/materialize.min.css';
+import { motion } from 'framer-motion'
 
 function About() {
     return (
+        <>
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 2 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+    >
         <div className="section" id="about">
             <div className="row container">
                 <div className="col s12">
@@ -14,7 +22,8 @@ function About() {
                 </div>
             </div>
         </div>
-
+        </motion.div >
+        </>
     );
 }
 

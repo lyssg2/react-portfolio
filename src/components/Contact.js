@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import M from 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
+import { motion } from 'framer-motion';
 
 class Contact extends Component {
   componentDidMount() {
@@ -12,6 +13,13 @@ class Contact extends Component {
   render() {
 
     return (
+      <>
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 2 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+    >
       <div className="container">
         <form>
           <div className="input-field col s6">
@@ -48,6 +56,8 @@ class Contact extends Component {
           </div>
         </form>
       </div>
+      </motion.div >
+        </>
     );
   };
 }

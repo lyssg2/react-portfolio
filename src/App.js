@@ -10,6 +10,7 @@ import {
 // Styling 
 import 'materialize-css/dist/css/materialize.min.css'
 import './index.css';
+import { AnimatePresence } from "framer-motion";
 
 // Components
 import Navigation from './components/Navigation'
@@ -22,6 +23,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
+    <AnimatePresence exitBeforeEnter>
     <Router >
       <div className="app-container">
         <Navigation />
@@ -35,6 +37,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </AnimatePresence>
   )
 }
 
