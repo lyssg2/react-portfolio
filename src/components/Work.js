@@ -9,7 +9,7 @@ import { styled } from '@mui/material/styles';
 import { teal } from '@mui/material/colors';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { Row, Item } from '@mui-treasury/components/flex';
+import { Row } from '@mui-treasury/components/flex';
 import { Info, InfoTitle } from '@mui-treasury/components/info';
 import { useNewsInfoStyles } from '@mui-treasury/styles/info/news';
 import { useCoverCardMediaStyles } from '@mui-treasury/styles/cardMedia/cover';
@@ -172,7 +172,7 @@ const Work = () => {
                                             <InfoTitle className={styles.info}>An online real-world scavenger hunt application where contestants solve clues to find locations, then scan QR codes to earn points and log their victories.</InfoTitle>
                                             <br />
                                             <ColorButton variant="contained" href="https://www.totalquest.us/">Live</ColorButton>
-                                            <ColorButton variant="outlined" href="https://github.com/mjamesd/urban-giggle">Repo</ColorButton>
+                                            <ColorButton variant="contained" href="https://github.com/mjamesd/urban-giggle">Repo</ColorButton>
                                         </Info>
                                     </Row>
                                     <div className={styles.shadow} />
@@ -206,8 +206,8 @@ const Work = () => {
                                         <Info position={'middle'} useStyles={useNewsInfoStyles}>
                                             <InfoTitle className={styles.info}>A website connecting the coffee lover to the best coffee shops in the PNW.</InfoTitle>
                                             <br />
-                                            <ColorButton variant="outlined" href="https://extracted-coffee.herokuapp.com/">Live</ColorButton>
-                                            <ColorButton variant="outlined" href="https://github.com/lyssg2/extracted">Repo</ColorButton>
+                                            <ColorButton variant="contained" href="https://extracted-coffee.herokuapp.com/">Live</ColorButton>
+                                            <ColorButton variant="contained" href="https://github.com/lyssg2/extracted">Repo</ColorButton>
                                         </Info>
                                     </Row>
                                     <div className={styles.shadow} />
@@ -241,8 +241,8 @@ const Work = () => {
                                         <Info position={'middle'} useStyles={useNewsInfoStyles}>
                                             <InfoTitle className={styles.info}>Helping the fellow beverage lover and newbie mixer alike find cocktail recipes in a pinch.</InfoTitle>
                                             <br />
-                                            <ColorButton variant="outlined" href="https://lyssg2.github.io/cocktail-hour/">Live</ColorButton>
-                                            <ColorButton variant="outlined" href="https://github.com/lyssg2/cocktail-hour">Repo</ColorButton>
+                                            <ColorButton variant="contained" href="https://lyssg2.github.io/cocktail-hour/">Live</ColorButton>
+                                            <ColorButton variant="contained" href="https://github.com/lyssg2/cocktail-hour">Repo</ColorButton>
                                         </Info>
                                     </Row>
                                     <div className={styles.shadow} />
@@ -276,8 +276,8 @@ const Work = () => {
                                         <Info position={'middle'} useStyles={useNewsInfoStyles}>
                                             <InfoTitle className={styles.info}>Write code anywhere. Online or offline!</InfoTitle>
                                             <br />
-                                            <ColorButton variant="outlined" href="https://nameless-bayou-34119.herokuapp.com/">Live</ColorButton>
-                                            <ColorButton variant="outlined" href="https://github.com/lyssg2/text-editor">Repo</ColorButton>
+                                            <ColorButton variant="contained" href="https://nameless-bayou-34119.herokuapp.com/">Live</ColorButton>
+                                            <ColorButton variant="contained" href="https://github.com/lyssg2/text-editor">Repo</ColorButton>
                                         </Info>
                                     </Row>
                                     <div className={styles.shadow} />
