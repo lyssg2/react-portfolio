@@ -1,17 +1,13 @@
 import React from 'react'
-import 'materialize-css/dist/css/materialize.min.css';
 import { motion } from 'framer-motion';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import { teal } from '@mui/material/colors'
-import Paper from '@mui/material/Paper';
 import TextInfoContent from '@mui-treasury/components/content/textInfo';
-import { useFourThreeCardMediaStyles } from '@mui-treasury/styles/cardMedia/fourThree';
 import { useN04TextInfoContentStyles } from '@mui-treasury/styles/textInfoContent/n04';
-import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over';
-import { maxWidth, style } from '@mui/system';
+
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -44,13 +40,13 @@ const ColorButton = styled(Button)(({ theme }) => ({
   justifyContent: 'center',
   alignItems: 'center',
   color: theme.palette.getContrastText(teal[900]),
-  borderColor: teal[900],
-  backgroundColor: teal[900],
+  backgroundColor: '#2a4747',
   '&:hover': {
-    backgroundColor: teal[100],
-    borderColor: teal[100],
+    backgroundColor: '#5c162e',
+    borderColor: '#5c162e',
   },
 }));
+
 
 function Skills() {
 

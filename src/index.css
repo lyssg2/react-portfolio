@@ -5,6 +5,9 @@ body {
   font-family: 'Prata', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #2a4747;
+  color: white;
+  font-weight:lighter; 
 }
 
 code {
@@ -15,7 +18,16 @@ code {
   text-decoration: none;
 }
 
-h5 {
-  font-family: 'Spartan';
+h5, h6, h4 {
+  font-family: 'Prata';
+  color: whitesmoke;
+  font-weight: 50;
+}
+
+footer {
+  margin-bottom: 0 !important;
+  background-color: #2a4747;
+  display: flex;
+  justify-content: center;
 }
 

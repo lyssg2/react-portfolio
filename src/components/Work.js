@@ -1,5 +1,4 @@
 import React from 'react'
-import 'materialize-css/dist/css/materialize.min.css';
 import { motion } from 'framer-motion';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';

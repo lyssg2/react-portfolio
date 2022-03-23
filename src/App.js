@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 
 // Styling 
-import 'materialize-css/dist/css/materialize.min.css'
 import './index.css';
 import { AnimatePresence } from "framer-motion";
 
