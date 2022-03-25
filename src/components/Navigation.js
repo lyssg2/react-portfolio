@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { Link, useLocation } from "react-router-dom"
+import { Link } from "react-router-dom"
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -9,24 +11,48 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import { Grid } from '@mui/material';
-import Tooltip from '@mui/material/Tooltip';
+import { useFloatNavigationMenuStyles } from '@mui-treasury/styles/navigationMenu/float';
+import { NavMenu, NavItem } from '@mui-treasury/components/menu/navigation';
 import MenuItem from '@mui/material/MenuItem';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-import { color, fontFamily } from '@mui/system';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { SocialProvider, SocialLink } from '@mui-treasury/components/socialLink'
+import { useMoonSocialLinkStyles } from '@mui-treasury/styles/socialLink/moon';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import zIndex from '@mui/material/styles/zIndex';
+import { lineHeight } from '@mui/system';
 
+const drawerWidth = 60;
 
 const styles = {
     navStyle: {
         backgroundColor: '#2a4747',
-        boxShadow: 'none'
+        boxShadow: 'none',
+        zIndex: '1',
+        alignItems: 'right',
+        display: 'flex',
+        justifyContent: 'right'
+    },
+    root: {
+        alignItems: 'right',
+        display: 'flex',
+        justifyContent: 'right'
     },
     links: {
         textDecoration: 'none',
         lineHeight: '1',
-        color: 'whitesmoke',
+        color: '#b4a6ab',
         fontFamily: 'Prata'
     },
+    dropdownLinks: {
+        textDecoration: 'none',
+        lineHeight: '1',
+        color: '#5c162e',
+        fontFamily: 'Prata'
+    },
+    sideNav: {
+        position: 'fixed',
+        marginBottom: 0,
+    }
 }
 
 const theme = createTheme({
@@ -67,119 +93,145 @@ const Navigation = () => {
     return (
         <>
             <ThemeProvider theme={theme}>
-                <AppBar style={styles.navStyle} position="static">
-                    
-                        <Container maxWidth="xl">
-                            <Toolbar disableGutters style={{display:"flex", justifyContent:"space-between"}}>
-                                <div>
-                                    <Typography
-                                        variant="h6"
-                                        noWrap
-                                        component="div"
-                                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                <AppBar style={styles.navStyle} position="static" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+
+                    <Container maxWidth="xl">
+                        <Toolbar disableGutters >
+                            <div className='navLinks'>
+                                <Box sx={{ flexGrow: 1, float: 'right', display: { xs: 'flex', md: 'none' } }}>
+                                    <IconButton
+                                        size="large"
+                                        aria-label="account of current user"
+                                        aria-controls="menu-appbar"
+                                        aria-haspopup="true"
+                                        onClick={handleOpenNavMenu}
+                                        color="inherit"
                                     >
-                                        <h4>Lyss Garcia</h4>
-                                    </Typography>
-                                    </div>
-                                    <div>
-                                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                                        <IconButton
-                                            size="large"
-                                            aria-label="account of current user"
-                                            aria-controls="menu-appbar"
-                                            aria-haspopup="true"
-                                            onClick={handleOpenNavMenu}
-                                            color="inherit"
-                                        >
-                                            <MenuIcon />
-                                        </IconButton>
-                                        <Menu
-                                            id="menu-appbar"
-                                            anchorEl={anchorElNav}
-                                            anchorOrigin={{
-                                                vertical: 'bottom',
-                                                horizontal: 'left',
-                                            }}
-                                            keepMounted
-                                            transformOrigin={{
-                                                vertical: 'top',
-                                                horizontal: 'left',
-                                            }}
-                                            open={Boolean(anchorElNav)}
-                                            onClose={handleCloseNavMenu}
-                                            sx={{
-                                                display: { xs: 'block', md: 'none' },
-                                            }}
-                                        >
-                                            <MenuItem onClick={handleCloseNavMenu}>
-                                                <Typography textAlign="center"><Link style={styles.links} to="/">Home</Link></Typography>
-                                            </MenuItem>
-                                            <MenuItem onClick={handleCloseNavMenu}>
-                                                <Typography textAlign="center"><Link style={styles.links} to="/About">About</Link></Typography>
-                                            </MenuItem>
-                                            <MenuItem onClick={handleCloseNavMenu}>
-                                                <Typography textAlign="center"><Link style={styles.links} to="/Skills">Skills</Link></Typography>
-                                            </MenuItem>
-                                            <MenuItem onClick={handleCloseNavMenu}>
-                                                <Typography textAlign="center"><Link style={styles.links} to="/Work">Work</Link></Typography>
-                                            </MenuItem>
-                                            <MenuItem onClick={handleCloseNavMenu}>
-                                                <Typography textAlign="center"><Link style={styles.links} to="/Contact">Contact</Link></Typography>
-                                            </MenuItem>
-
-                                        </Menu>
-                                    </Box>
-                                    </div>
-                                <div>
-                                    <Typography
-                                        variant="h6"
-                                        noWrap
-                                        component="div"
-                                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                                        <MenuIcon />
+                                    </IconButton>
+                                    <Menu
+                                        id="menu-appbar"
+                                        anchorEl={anchorElNav}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'left',
+                                        }}
+                                        keepMounted
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'left',
+                                        }}
+                                        open={Boolean(anchorElNav)}
+                                        onClose={handleCloseNavMenu}
+                                        sx={{
+                                            display: { xs: 'block', md: 'none' },
+                                        }}
                                     >
-                                        LYSS GARCIA
-                                    </Typography>
-                                    </div>
-                                <div>
-                                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                                        <MenuItem onClick={handleCloseNavMenu}>
+                                            <Typography textAlign="center"><Link style={styles.dropdownLinks} to="/">Home</Link></Typography>
+                                        </MenuItem>
+                                        <MenuItem onClick={handleCloseNavMenu}>
+                                            <Typography textAlign="center"><Link style={styles.dropdownLinks} to="/About">About</Link></Typography>
+                                        </MenuItem>
+                                        <MenuItem onClick={handleCloseNavMenu}>
+                                            <Typography textAlign="center"><Link style={styles.dropdownLinks} to="/Skills">Skills</Link></Typography>
+                                        </MenuItem>
+                                        <MenuItem onClick={handleCloseNavMenu}>
+                                            <Typography textAlign="center"><Link style={styles.dropdownLinks} to="/Work">Work</Link></Typography>
+                                        </MenuItem>
+                                        <MenuItem onClick={handleCloseNavMenu}>
+                                            <Typography textAlign="center"><Link style={styles.dropdownLinks} to="/Contact">Contact</Link></Typography>
+                                        </MenuItem>
 
-                                        <Button
-                                            onClick={handleCloseNavMenu}
-                                            sx={{ my: 2, color: 'white', display: 'block' }}
-                                        >
-                                            <Link style={styles.links} to="/">Home</Link>
-                                        </Button>
-                                        <Button
-                                            onClick={handleCloseNavMenu}
-                                            sx={{ my: 2, color: 'white', display: 'block' }}
-                                        >
-                                            <Link style={styles.links} to="/About">About</Link>
-                                        </Button>
-                                        <Button
-                                            onClick={handleCloseNavMenu}
-                                            sx={{ my: 2, color: 'white', display: 'block' }}
-                                        >
-                                            <Link style={styles.links} to="/Skills">Skills</Link>
-                                        </Button>
-                                        <Button
-                                            onClick={handleCloseNavMenu}
-                                            sx={{ my: 2, color: 'white', display: 'block' }}
-                                        >
-                                            <Link style={styles.links} to="/Work">Work</Link>
-                                        </Button>
-                                        <Button
-                                            onClick={handleCloseNavMenu}
-                                            sx={{ my: 2, color: 'white', display: 'block' }}
-                                        >
-                                            <Link style={styles.links} to="/Contact">Contact</Link>
-                                        </Button>
+                                    </Menu>
+                                </Box>
+                            </div>
+                            <div>
+                                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                                    <NavMenu gutter={1} useStyles={useFloatNavigationMenuStyles}>
 
-                                    </Box>
-                                </div>
-                            </Toolbar>
-                        </Container>
-                    
+                                        <NavItem>
+                                            <Button
+                                                onClick={handleCloseNavMenu}
+                                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                            >
+                                                <Link style={styles.links} to="/">Home</Link>
+                                            </Button>
+                                        </NavItem>
+
+                                        <NavItem>
+                                            <Button
+                                                onClick={handleCloseNavMenu}
+                                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                            >
+                                                <Link style={styles.links} to="/About">About</Link>
+                                            </Button>
+                                        </NavItem>
+
+                                        <NavItem>
+                                            <Button
+                                                onClick={handleCloseNavMenu}
+                                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                            >
+                                                <Link style={styles.links} to="/Skills">Skills</Link>
+                                            </Button>
+                                        </NavItem>
+
+                                        <NavItem>
+                                            <Button
+                                                onClick={handleCloseNavMenu}
+                                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                            >
+                                                <Link style={styles.links} to="/Work">Work</Link>
+                                            </Button>
+                                        </NavItem>
+
+                                        <NavItem>
+                                            <Button
+                                                onClick={handleCloseNavMenu}
+                                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                            >
+                                                <Link style={styles.links} to="/Contact">Contact</Link>
+                                            </Button>
+                                        </NavItem>
+                                    </NavMenu>
+
+                                </Box>
+                            </div>
+                        </Toolbar>
+                    </Container>
+
                 </AppBar>
+                <Box>
+                    <Drawer
+                        sx={{
+                            width: drawerWidth,
+                            flexShrink: 0,
+                            position: 'fixed', 
+                            bottom: 0,
+                            '& .MuiDrawer-paper': {
+                                width: drawerWidth,
+                                boxSizing: 'border-box',
+                                backgroundColor: 'transparent',
+                                border: 'none',
+                                padding: '2px',
+                                lineHeight: '3',
+                                color: '#b4a6ab',
+                            },
+                        }}
+                        variant="permanent"
+                        anchor="left"
+                    >
+                        <Toolbar />
+                        <List>
+                            <SocialProvider useStyles={useMoonSocialLinkStyles}>
+                                <ListItemIcon><SocialLink brand={'GithubCircle'} href={'https://github.com/lyssg2'} /></ListItemIcon>
+                                <ListItemIcon><SocialLink brand={'Instagram'} href={'https://www.instagram.com/lyssgram/'} /></ListItemIcon>
+                                <ListItemIcon><SocialLink brand={'LinkedIn'} href={'hhttps://www.linkedin.com/in/lyss-garcia-6a480a155/'} /></ListItemIcon>
+                            </SocialProvider>
+                        </List>
+                    </Drawer>
+                </Box>
             </ThemeProvider>
         </>
     )
@@ -187,28 +239,3 @@ const Navigation = () => {
 
 
 export default Navigation;
-
-
-{/* // <header>
-            //     <nav style={styles.navStyle}>
-            //         <div className="nav-wrapper">
-            //             <h6 className="brand-logo center">Hi, I'm Lyss</h6>
-            //             <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-            //             <ul className="right hide-on-med-and-down">
-            //                 <li><Link to="/">Home</Link></li>
-            //                 <li><Link to="/About">About</Link></li>
-            //                 <li><Link to="/Skills">Skills</Link></li>
-            //                 <li><Link to="/Work">Work</Link></li>
-            //                 <li><Link to="/Contact">Contact</Link></li>
-            //             </ul>
-            //         </div>
-            //     </nav>
-
-            //     <ul className="sidenav" id="mobile-demo">
-            //         <li><Link to="/">Home</Link></li>
-            //         <li><Link to="/About">About</Link></li>
-            //         <li><Link to="/Skills">Skills</Link></li>
-            //         <li><Link to="/Work">Work</Link></li>
-            //         <li><Link to="/Contact">Contact</Link></li>
-            //     </ul>
-            // </header> */}

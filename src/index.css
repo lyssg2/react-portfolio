@@ -24,6 +24,10 @@ h5, h6, h4 {
   font-weight: 50;
 }
 
+.navLinks {
+  float: right;
+}
+
 footer {
   margin-bottom: 0 !important;
   background-color: #2a4747;
