@@ -13,6 +13,7 @@ import { Info, InfoTitle } from '@mui-treasury/components/info';
 import { useNewsInfoStyles } from '@mui-treasury/styles/info/news';
 import { useCoverCardMediaStyles } from '@mui-treasury/styles/cardMedia/cover';
 
+const transition = { duration: .6, ease: [0.6, 0.01, -0.05, 0.9] }
 
 const useStyles = makeStyles(() => ({
     card: {
@@ -130,14 +131,15 @@ const Work = () => {
 
         <>
             <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 2 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
+               initial={{ opacity: 0, y: 20 }}
+               animate={{
+                   opacity: 1,
+                   y: 0,
+                   transition: { delay: 0.6, ...transition },
+               }}
             >
                 <div className="container">
                     <div className="row center-align">
-                        <h3>Projects</h3>
 
                         <Grid container 
                             spacing={4}
@@ -248,43 +250,7 @@ const Work = () => {
                                     <div className={`${styles.shadow} ${styles.shadow2}`} />
                                 </Card>
                             </Grid>
-
-                            <Grid item>
-                                <Card className={styles.card}>
-                                    <Box className={styles.main} minHeight={300} position={'relative'}>
-                                        <CardMedia
-                                            classes={mediaStyles}
-                                            image={
-                                                require("../assets/images/text-editor.jpg.png")
-                                            }
-                                        />
-                                        <div className={styles.content}>
-                                            <Typography variant={'h2'} className={styles.title}>
-                                                Text Editor
-                                            </Typography>
-                                        </div>
-                                    </Box>
-                                    <Row
-                                        className={styles.author}
-                                        m={0}
-                                        p={3}
-                                        pt={2}
-                                        gap={2}
-                                        bgcolor={'common.white'}
-                                    >
-                                        <Info position={'middle'} useStyles={useNewsInfoStyles}>
-                                            <InfoTitle className={styles.info}>Write code anywhere. Online or offline!</InfoTitle>
-                                            <br />
-                                            <ColorButton variant="contained" href="https://nameless-bayou-34119.herokuapp.com/">Live</ColorButton>
-                                            <ColorButton variant="contained" href="https://github.com/lyssg2/text-editor">Repo</ColorButton>
-                                        </Info>
-                                    </Row>
-                                    <div className={styles.shadow} />
-                                    <div className={`${styles.shadow} ${styles.shadow2}`} />
-                                </Card>
-                            </Grid>
                         </Grid>
-
                     </div>
                 </div>
             </motion.div >

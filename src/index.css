@@ -18,10 +18,13 @@ code {
   text-decoration: none;
 }
 
-h5, h6, h4 {
+h5, h4 {
   font-family: 'Prata';
-  color: whitesmoke;
   font-weight: 50;
+}
+
+h6 {
+  font-family: 'Prata';
 }
 
 .navLinks {

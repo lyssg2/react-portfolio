@@ -5,22 +5,14 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import { useFloatNavigationMenuStyles } from '@mui-treasury/styles/navigationMenu/float';
 import { NavMenu, NavItem } from '@mui-treasury/components/menu/navigation';
-import MenuItem from '@mui/material/MenuItem';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { SocialProvider, SocialLink } from '@mui-treasury/components/socialLink'
 import { useMoonSocialLinkStyles } from '@mui-treasury/styles/socialLink/moon';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import zIndex from '@mui/material/styles/zIndex';
-import { lineHeight } from '@mui/system';
-
 const drawerWidth = 60;
 
 const styles = {
@@ -72,87 +64,19 @@ const theme = createTheme({
 )
 
 const Navigation = () => {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
 
     return (
         <>
             <ThemeProvider theme={theme}>
                 <AppBar style={styles.navStyle} position="static" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-
                     <Container maxWidth="xl">
                         <Toolbar disableGutters >
-                            <div className='navLinks'>
-                                <Box sx={{ flexGrow: 1, float: 'right', display: { xs: 'flex', md: 'none' } }}>
-                                    <IconButton
-                                        size="large"
-                                        aria-label="account of current user"
-                                        aria-controls="menu-appbar"
-                                        aria-haspopup="true"
-                                        onClick={handleOpenNavMenu}
-                                        color="inherit"
-                                    >
-                                        <MenuIcon />
-                                    </IconButton>
-                                    <Menu
-                                        id="menu-appbar"
-                                        anchorEl={anchorElNav}
-                                        anchorOrigin={{
-                                            vertical: 'bottom',
-                                            horizontal: 'left',
-                                        }}
-                                        keepMounted
-                                        transformOrigin={{
-                                            vertical: 'top',
-                                            horizontal: 'left',
-                                        }}
-                                        open={Boolean(anchorElNav)}
-                                        onClose={handleCloseNavMenu}
-                                        sx={{
-                                            display: { xs: 'block', md: 'none' },
-                                        }}
-                                    >
-                                        <MenuItem onClick={handleCloseNavMenu}>
-                                            <Typography textAlign="center"><Link style={styles.dropdownLinks} to="/">Home</Link></Typography>
-                                        </MenuItem>
-                                        <MenuItem onClick={handleCloseNavMenu}>
-                                            <Typography textAlign="center"><Link style={styles.dropdownLinks} to="/About">About</Link></Typography>
-                                        </MenuItem>
-                                        <MenuItem onClick={handleCloseNavMenu}>
-                                            <Typography textAlign="center"><Link style={styles.dropdownLinks} to="/Skills">Skills</Link></Typography>
-                                        </MenuItem>
-                                        <MenuItem onClick={handleCloseNavMenu}>
-                                            <Typography textAlign="center"><Link style={styles.dropdownLinks} to="/Work">Work</Link></Typography>
-                                        </MenuItem>
-                                        <MenuItem onClick={handleCloseNavMenu}>
-                                            <Typography textAlign="center"><Link style={styles.dropdownLinks} to="/Contact">Contact</Link></Typography>
-                                        </MenuItem>
-
-                                    </Menu>
-                                </Box>
-                            </div>
                             <div>
-                                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                                <Box sx={{ flexGrow: 1 }}>
                                     <NavMenu gutter={1} useStyles={useFloatNavigationMenuStyles}>
 
                                         <NavItem>
                                             <Button
-                                                onClick={handleCloseNavMenu}
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
                                                 <Link style={styles.links} to="/">Home</Link>
@@ -161,16 +85,6 @@ const Navigation = () => {
 
                                         <NavItem>
                                             <Button
-                                                onClick={handleCloseNavMenu}
-                                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                            >
-                                                <Link style={styles.links} to="/About">About</Link>
-                                            </Button>
-                                        </NavItem>
-
-                                        <NavItem>
-                                            <Button
-                                                onClick={handleCloseNavMenu}
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
                                                 <Link style={styles.links} to="/Skills">Skills</Link>
@@ -179,7 +93,6 @@ const Navigation = () => {
 
                                         <NavItem>
                                             <Button
-                                                onClick={handleCloseNavMenu}
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
                                                 <Link style={styles.links} to="/Work">Work</Link>
@@ -188,19 +101,16 @@ const Navigation = () => {
 
                                         <NavItem>
                                             <Button
-                                                onClick={handleCloseNavMenu}
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
                                                 <Link style={styles.links} to="/Contact">Contact</Link>
                                             </Button>
                                         </NavItem>
                                     </NavMenu>
-
                                 </Box>
                             </div>
                         </Toolbar>
                     </Container>
-
                 </AppBar>
                 <Box>
                     <Drawer

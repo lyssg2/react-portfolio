@@ -1,9 +1,11 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
 import Box from '@mui/material/Box';
 import { Grid } from '@mui/material';
+import { motion } from "framer-motion";
 
+const transition = { duration: .6, ease: [0.6, 0.01, -0.05, 0.9] }
 
+const letterTransition = { duration: 1.4, ease: [0.08, 0.01, -0.05, 2] };
 
 const styles = {
     name: {
@@ -41,17 +43,54 @@ export default function Intro() {
                 <Box style={styles.content} sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2} alignItems="center" textAlign={'center'} justifyContent={'center'}>
                         <Grid item xs="8" md={5}>
-
-                            <h1 style={styles.name}>Lyss Garcia</h1>
-                            <h3 style={styles.subtitle}>Just a dev girl in a dev world.</h3>
+                            <motion.div
+                            whileHover={{
+                                scale: 1.01,
+                                textShadow: "0px 0px 2px #1CFEBA"
+                            }}
+                                className='single'
+                                initial='initial'
+                                animate='animate'
+                                exit='exit'>
+                                <motion.div
+                                animate={{
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: { delay: 0.9, ...letterTransition }
+                                }}>
+                                    <motion.span className="first" >
+                                        <motion.span style={styles.name}>Lyss Garcia</motion.span>
+                                    </motion.span>
+                                </motion.div>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 25 }}
+                                animate={{
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: { delay: 0.6, ...letterTransition },
+                                }}>
+                                <h3 style={styles.subtitle}>Just a dev girl in a dev world</h3>
+                            </motion.div>
                             <br />
-                            <h2 style={styles.msgStyle}>I'm a full-stack Web Developer who loves designing and building beautifully seamless applications. Specializing in tuning a design-eye to align with the desired aesthetics and creating exciting user-oriented experiences. Let's develop something cool together.</h2>
-
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: { delay: 0.6, ...letterTransition },
+                                }}>
+                                <h2 style={styles.msgStyle}>I'm a full-stack Web Developer who loves designing and building beautifully seamless applications. Specializing in tuning a design-eye to align with the desired aesthetics and creating exciting user-oriented experiences. Let's develop something cool together.</h2>
+                            </motion.div>
                         </Grid>
                         <Grid item xs="8" md={5}>
-
-                            <img style={styles.helloImg} src={require("../assets/images/cartoonself.jpg")} alt="Lyss Garcia, Web Developer"></img>
-
+                            <motion.img
+                                src={require("../assets/images/cartoonself.jpg")}
+                                whileHover={{ scale: 1.03 }}
+                                transition={transition}
+                                style={styles.helloImg}
+                                alt="Lyss Garcia, Web Developer">
+                            </motion.img>
                         </Grid>
                     </Grid>
                 </Box>

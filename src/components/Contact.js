@@ -6,8 +6,7 @@ import Card from '@material-ui/core/Card';
 import Box from '@mui/material/Box';
 import Button from '@material-ui/core/Button';
 import TextField from '@mui/material/TextField';
-import { teal } from '@mui/material/colors'
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import CardContent from '@material-ui/core/CardContent';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import TextInfoContent from '@mui-treasury/components/content/textInfo';
@@ -15,7 +14,7 @@ import { useN04TextInfoContentStyles } from '@mui-treasury/styles/textInfoConten
 import { useOverShadowStyles } from '@mui-treasury/styles/shadow/over';
 import Modal from '@mui/material/Modal';
 
-
+const transition = { duration: 1.6, ease: [0.08, 0.09, -0.1, 2] };
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -34,30 +33,17 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const theme = createTheme({
-  palette: {
-    type: 'light',
-    primary: {
-      main: '#5c162e',
-    },
-    secondary: {
-      main: '#2a4747',
-    },
-    error: {
-      main: '#934b00',
-    },
-  },
-});
-
 const ColorButton = styled(Button)(({ theme }) => ({
   margin: '5px',
   justifyContent: 'center',
   alignItems: 'center',
-  color: theme.palette.getContrastText(teal[900]),
-  backgroundColor: '#2a4747',
+  color: 'black',
+  backgroundColor: '#1CFEBA',
   '&:hover': {
     backgroundColor: '#5c162e',
     borderColor: '#5c162e',
+    scale: '1.1',
+    color: 'white'
   },
   '&:click': {
     backgroundColor: '#5c162e',
@@ -76,12 +62,13 @@ const Contact = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <ThemeProvider theme={theme}>
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 2 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 0.6, ...transition },
+        }}
       >
 
         <main>
@@ -109,7 +96,9 @@ const Contact = () => {
                       placeholder="..."
                       style={{ width: 300, height: 100 }}
                     />
+
                     <ColorButton onClick={handleOpen} size="medium" variant="contained">Send</ColorButton>
+
                     <Modal
                       open={open}
                       onClose={handleClose}
@@ -137,7 +126,6 @@ const Contact = () => {
           </Card>
         </main>
       </motion.div>
-    </ThemeProvider>
   );
 };
 
