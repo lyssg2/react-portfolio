@@ -114,12 +114,15 @@ const useStyles = makeStyles(() => ({
 
 const ColorButton = styled(Button)(({ theme }) => ({
     margin: '5px',
-    color: theme.palette.getContrastText(teal[900]),
-    borderColor: teal[900],
-    backgroundColor: teal[900],
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: 'black',
+    backgroundColor: '#1CFEBA',
     '&:hover': {
-      backgroundColor: teal[100],
-      borderColor: teal[100],
+      backgroundColor: '#5c162e',
+      borderColor: '#5c162e',
+      scale: '1.1',
+      color: 'white'
     },
   }));
 

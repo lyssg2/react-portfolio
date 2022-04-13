@@ -2,18 +2,17 @@ import * as React from 'react';
 import { Link } from "react-router-dom"
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
 import Toolbar from '@mui/material/Toolbar';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import IconButton from '@mui/material/IconButton';
+import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import { useFloatNavigationMenuStyles } from '@mui-treasury/styles/navigationMenu/float';
 import { NavMenu, NavItem } from '@mui-treasury/components/menu/navigation';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { SocialProvider, SocialLink } from '@mui-treasury/components/socialLink'
-import { useMoonSocialLinkStyles } from '@mui-treasury/styles/socialLink/moon';
-import ListItemIcon from '@mui/material/ListItemIcon';
-const drawerWidth = 60;
+
 
 const styles = {
     navStyle: {
@@ -64,6 +63,15 @@ const theme = createTheme({
 )
 
 const Navigation = () => {
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+    const handleOpenNavMenu = (event) => {
+        setAnchorElNav(event.currentTarget);
+    };
+
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
+    };
 
     return (
         <>
@@ -72,14 +80,62 @@ const Navigation = () => {
                     <Container maxWidth="xl">
                         <Toolbar disableGutters >
                             <div>
-                                <Box sx={{ flexGrow: 1 }}>
+                                <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                                    <IconButton
+                                        size="large"
+                                        aria-label="account of current user"
+                                        aria-controls="menu-appbar"
+                                        aria-haspopup="true"
+                                        onClick={handleOpenNavMenu}
+                                        color="inherit"
+                                    >
+                                        <MenuIcon />
+                                    </IconButton>
+                                    <Menu
+                                        id="menu-appbar"
+                                        anchorEl={anchorElNav}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'left',
+                                        }}
+                                        keepMounted
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'left',
+                                        }}
+                                        open={Boolean(anchorElNav)}
+                                        onClose={handleCloseNavMenu}
+                                        sx={{
+                                            display: { xs: 'block', md: 'none' },
+                                        }}
+                                    >
+                                        <MenuItem sx={{ color: 'white', display: 'block' }}>
+                                            <Link onClick={handleCloseNavMenu} style={styles.links} to="/">Home</Link>
+                                        </MenuItem>
+
+                                        <MenuItem sx={{ color: 'white', display: 'block' }}>
+                                            <Link onClick={handleCloseNavMenu} style={styles.links} to="/Skills">Skills</Link>
+                                        </MenuItem>
+
+                                        <MenuItem sx={{ color: 'white', display: 'block' }}>
+                                            <Link onClick={handleCloseNavMenu} style={styles.links} to="/Work">Work</Link>
+                                        </MenuItem>
+
+                                        <MenuItem sx={{ color: 'white', display: 'block' }}>
+                                            <Link onClick={handleCloseNavMenu} style={styles.links} to="/Contact">Contact</Link>
+                                        </MenuItem>
+
+                                    </Menu>
+                                </Box>
+            
+                                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                                     <NavMenu gutter={1} useStyles={useFloatNavigationMenuStyles}>
 
                                         <NavItem>
                                             <Button
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
-                                                <Link style={styles.links} to="/">Home</Link>
+                                                <Link onClick={handleCloseNavMenu} style={styles.links} to="/">Home</Link>
                                             </Button>
                                         </NavItem>
 
@@ -87,7 +143,7 @@ const Navigation = () => {
                                             <Button
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
-                                                <Link style={styles.links} to="/Skills">Skills</Link>
+                                                <Link onClick={handleCloseNavMenu} style={styles.links} to="/Skills">Skills</Link>
                                             </Button>
                                         </NavItem>
 
@@ -95,7 +151,7 @@ const Navigation = () => {
                                             <Button
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
-                                                <Link style={styles.links} to="/Work">Work</Link>
+                                                <Link onClick={handleCloseNavMenu} style={styles.links} to="/Work">Work</Link>
                                             </Button>
                                         </NavItem>
 
@@ -103,7 +159,7 @@ const Navigation = () => {
                                             <Button
                                                 sx={{ my: 2, color: 'white', display: 'block' }}
                                             >
-                                                <Link style={styles.links} to="/Contact">Contact</Link>
+                                                <Link onClick={handleCloseNavMenu} style={styles.links} to="/Contact">Contact</Link>
                                             </Button>
                                         </NavItem>
                                     </NavMenu>
@@ -112,36 +168,6 @@ const Navigation = () => {
                         </Toolbar>
                     </Container>
                 </AppBar>
-                <Box>
-                    <Drawer
-                        sx={{
-                            width: drawerWidth,
-                            flexShrink: 0,
-                            position: 'fixed', 
-                            bottom: 0,
-                            '& .MuiDrawer-paper': {
-                                width: drawerWidth,
-                                boxSizing: 'border-box',
-                                backgroundColor: 'transparent',
-                                border: 'none',
-                                padding: '2px',
-                                lineHeight: '3',
-                                color: '#b4a6ab',
-                            },
-                        }}
-                        variant="permanent"
-                        anchor="left"
-                    >
-                        <Toolbar />
-                        <List>
-                            <SocialProvider useStyles={useMoonSocialLinkStyles}>
-                                <ListItemIcon><SocialLink brand={'GithubCircle'} href={'https://github.com/lyssg2'} /></ListItemIcon>
-                                <ListItemIcon><SocialLink brand={'Instagram'} href={'https://www.instagram.com/lyssgram/'} /></ListItemIcon>
-                                <ListItemIcon><SocialLink brand={'LinkedIn'} href={'hhttps://www.linkedin.com/in/lyss-garcia-6a480a155/'} /></ListItemIcon>
-                            </SocialProvider>
-                        </List>
-                    </Drawer>
-                </Box>
             </ThemeProvider>
         </>
     )
