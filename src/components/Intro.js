@@ -42,7 +42,7 @@ export default function Intro() {
             >
                 <Box style={styles.content} sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2} alignItems="center" textAlign={'center'} justifyContent={'center'}>
-                        <Grid item xs="8" md={5}>
+                        <Grid item xs={8} md={5} sm={8}>
                             <motion.div
                             whileHover={{
                                 scale: 1.01,
@@ -83,7 +83,7 @@ export default function Intro() {
                                 <h2 style={styles.msgStyle}>I'm a full-stack Web Developer who loves designing and building beautifully seamless applications. Specializing in tuning a design-eye to align with the desired aesthetics and creating exciting user-oriented experiences. Let's develop something cool together.</h2>
                             </motion.div>
                         </Grid>
-                        <Grid item xs="8" md={5}>
+                        <Grid item xs={8} md={5} sm={8}>
                             <motion.img
                                 src={require("../assets/images/cartoonself.jpg")}
                                 whileHover={{ scale: 1.03 }}
