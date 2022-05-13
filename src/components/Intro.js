@@ -80,7 +80,7 @@ export default function Intro() {
                                     y: 0,
                                     transition: { delay: 0.6, ...letterTransition },
                                 }}>
-                                <h2 style={styles.msgStyle}>I'm a full-stack Web Developer who loves designing and building beautifully seamless applications. Specializing in tuning a design-eye to align with the desired aesthetics and creating exciting user-oriented experiences. Let's develop something cool together.</h2>
+                                <h2 style={styles.msgStyle}>I'm a full-stack Web Developer who loves designing and building beautifully seamless applications. Specializing in tuning a design-eye to align with the desired aesthetics and creating exciting user-oriented experiences. Head to the contact page to develop something cool together.</h2>
                             </motion.div>
                         </Grid>
                         <Grid item xs={8} md={5} sm={8}>

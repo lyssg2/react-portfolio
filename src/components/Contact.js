@@ -20,8 +20,8 @@ const useStyles = makeStyles(() => ({
   root: {
     maxWidth: 500,
     margin: 'auto',
-    borderRadius: 12,
-    padding: 12,
+    borderRadius: 10,
+    padding: 5,
     justifyContent: 'center',
   },
   media: {
@@ -31,6 +31,10 @@ const useStyles = makeStyles(() => ({
     borderWidth: '1px',
     borderColor: '#5c162e !important'
   },
+  a: {
+    textDecoration: 'none',
+    color: 'inherit',
+  }
 }));
 
 const ColorButton = styled(Button)(({ theme }) => ({
@@ -62,70 +66,77 @@ const Contact = () => {
   const handleClose = () => setOpen(false);
 
   return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{
-            opacity: 1,
-            y: 0,
-            transition: { delay: 0.6, ...transition },
-        }}
-      >
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        transition: { delay: 0.6, ...transition },
+      }}
+    >
 
-        <main>
-          <Card className={cx(styles.root, shadowStyles.root)}>
-            <CardContent>
-              <TextInfoContent
-                classes={textCardContentStyles}
-                overline={'We Need To Talk...'}
-                heading={'CONTACT ME'}
-                body={
-                  <Box
-                    sx={{
-                      display: 'flex',
+      <main>
+        <Card className={cx(styles.root, shadowStyles.root)}>
+          <CardContent>
+            <TextInfoContent
+              classes={textCardContentStyles}
+              overline={'We Need To Talk...'}
+              heading={'CONTACT ME'}
+              body={
+                <Box
+                  sx={{
+                    display: 'flex',
 
-                      alignItems: 'center',
-                      flexDirection: 'column',
-                      '& > :not(style)': { m: 1, width: '25ch' },
-                    }}
-                  >
-                    <TextField  id="outlined-basic" InputProps={{ disableUnderline: true, }} variant='outlined' label="Name" />
-                    <TextField id="demo-helper-text-misaligned-no-helper" variant='outlined' label="Email" />
+                    alignItems: 'center',
+                    flexDirection: 'column',
+                    '& > :not(style)': { m: 1, width: '25ch' },
+                  }}
+                >
+                  <TextField id="outlined-basic" InputProps={{ disableUnderline: true, }} variant='outlined' label="Name" />
+                  <TextField id="demo-helper-text-misaligned-no-helper" variant='outlined' label="Email" />
 
-                    <TextareaAutosize
-                      aria-label="empty textarea"
-                      placeholder="..."
-                      style={{ width: 300, height: 100 }}
-                    />
+                  <TextareaAutosize
+                    aria-label="empty textarea"
+                    placeholder="..."
+                    style={{ width: 300, height: 100 }}
+                  />
 
-                    <ColorButton onClick={handleOpen} size="medium" variant="contained">Send</ColorButton>
-
-                    <Modal
-                      open={open}
-                      onClose={handleClose}
-                      aria-labelledby="modal-modal-title"
-                      aria-describedby="modal-modal-description"
-                    >
-                      <Card className={cx(styles.root, shadowStyles.root)}>
-                        <CardContent>
-                          <TextInfoContent
-                            classes={textCardContentStyles}
-                            heading={'THANKS FOR REACHING OUT!'}
-                            body={
-                              <>
-                                <p>I will get back to you very soon</p>
-                              </>
-                            }
-                          />
-                        </CardContent>
-                      </Card>
-                    </Modal>
-                  </Box>
-                }
-              />
-            </CardContent>
+                  <ColorButton onClick={handleOpen} size="medium" variant="contained">Send</ColorButton>
+                  
+                  <TextInfoContent
+                    classes={textCardContentStyles}
+                    overline={"CAN'T WAIT? EMAIL ME DIRECTLY"}
+                    body={
+                      <a href="mailto:alyssa.g200@gmail.com">alyssa.g200@gmail.com</a>
+                    }
+                      />
+                        <Modal
+                          open={open}
+                          onClose={handleClose}
+                          aria-labelledby="modal-modal-title"
+                          aria-describedby="modal-modal-description"
+                        >
+                          <Card className={cx(styles.root, shadowStyles.root)}>
+                            <CardContent>
+                              <TextInfoContent
+                                classes={textCardContentStyles}
+                                heading={'THANKS FOR REACHING OUT!'}
+                                body={
+                                  <>
+                                    <p>I will get back to you very soon</p>
+                                  </>
+                                }
+                              />
+                            </CardContent>
+                          </Card>
+                        </Modal>
+                      </Box>
+                    }
+                  />
+                </CardContent>
           </Card>
-        </main>
-      </motion.div>
+      </main>
+    </motion.div>
   );
 };
 

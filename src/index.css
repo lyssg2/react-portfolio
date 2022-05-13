@@ -14,10 +14,6 @@ code {
   font-family: 'Prata', serif;
 }
 
-.links {
-  text-decoration: none;
-}
-
 h5, h4 {
   font-family: 'Prata';
   font-weight: 50;
@@ -27,14 +23,25 @@ h6 {
   font-family: 'Prata';
 }
 
-.navLinks {
-  float: right;
-}
-
 footer {
   margin-bottom: 0 !important;
   background-color: #2a4747;
   display: flex;
   justify-content: center;
 }
+
+.navLinks {
+  float: right;
+}
+
+.links {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 
