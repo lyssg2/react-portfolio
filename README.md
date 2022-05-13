@@ -11,10 +11,6 @@ Required program(s) needed is any common internet browser with Javascript enable
 The portfolio can be found at URL below
 https://lyssg2.github.io/react-portfolio/
 
-## Screenshot
-
-![2022-02-12 (2)](https://user-images.githubusercontent.com/89744530/153734750-29b98d49-4bff-4bb3-a22a-32321df07b08.png)
-
 ## Author
 
 Alyssa (Lyss) Garcia 
