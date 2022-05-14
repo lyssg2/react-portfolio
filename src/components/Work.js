@@ -5,11 +5,10 @@ import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import { Button, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { teal } from '@mui/material/colors';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Row } from '@mui-treasury/components/flex';
-import { Info, InfoTitle } from '@mui-treasury/components/info';
+import { Info, InfoSubtitle, InfoTitle } from '@mui-treasury/components/info';
 import { useNewsInfoStyles } from '@mui-treasury/styles/info/news';
 import { useCoverCardMediaStyles } from '@mui-treasury/styles/cardMedia/cover';
 
@@ -175,6 +174,9 @@ const Work = () => {
                                         <Info position={'middle'} useStyles={useNewsInfoStyles}>
                                             <InfoTitle className={styles.info}>An online real-world scavenger hunt application where contestants solve clues to find locations, then scan QR codes to earn points and log their victories.</InfoTitle>
                                             <br />
+                                            <InfoSubtitle className={styles.info}>REACT | MUI | GRAPHQL 
+                                            | JAVASCRIPT | NODE | EXPRESS | APOLLO | MONGOOSE </InfoSubtitle>
+                                            <br />
                                             <ColorButton variant="contained" href="https://www.totalquest.us/">Live</ColorButton>
                                             <ColorButton variant="contained" href="https://github.com/mjamesd/urban-giggle">Repo</ColorButton>
                                         </Info>
@@ -210,6 +212,8 @@ const Work = () => {
                                         <Info position={'middle'} useStyles={useNewsInfoStyles}>
                                             <InfoTitle className={styles.info}>A website connecting the coffee lover to the best coffee shops in the PNW.</InfoTitle>
                                             <br />
+                                            <InfoSubtitle className={styles.info}>JAVASCRIPT | HANDLEBARS | HTML | CSS | EXPRESS | MYSQL | BCRYPT | SEQUELIZE</InfoSubtitle>
+                                            <br />
                                             <ColorButton variant="contained" href="https://extracted-coffee.herokuapp.com/">Live</ColorButton>
                                             <ColorButton variant="contained" href="https://github.com/lyssg2/extracted">Repo</ColorButton>
                                         </Info>
@@ -244,6 +248,8 @@ const Work = () => {
                                     >
                                         <Info position={'middle'} useStyles={useNewsInfoStyles}>
                                             <InfoTitle className={styles.info}>Helping the fellow beverage lover and newbie mixer alike find cocktail recipes in a pinch.</InfoTitle>
+                                            <br />
+                                            <InfoSubtitle className={styles.info}>JAVASCRIPT | HTML | CSS </InfoSubtitle>
                                             <br />
                                             <ColorButton variant="contained" href="https://lyssg2.github.io/cocktail-hour/">Live</ColorButton>
                                             <ColorButton variant="contained" href="https://github.com/lyssg2/cocktail-hour">Repo</ColorButton>
